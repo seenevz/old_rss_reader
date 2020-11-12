@@ -1,5 +1,7 @@
 # rss_reader
 
+A minimalist RSS reader, intended to work as a PWA
+
 ## CLI Commands
 *   `npm install`: Installs dependencies
 
