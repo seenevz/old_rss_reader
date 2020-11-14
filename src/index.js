@@ -2,6 +2,6 @@ import "./style/index.css";
 import App from "./components/app.tsx";
 import { initialiseSW } from "./utils";
 
-initialiseSW()
+initialiseSW();
 
 export default App;

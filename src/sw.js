@@ -9,6 +9,7 @@ setupPrecaching(getFiles());
 
 */
 self.addEventListener("install", () => {
-    console.log("hello from SW!");
-    console.error('SW!')
+    self.skipWait()
+    debugger
+    console.log(self.scope)
 });
