@@ -2,6 +2,7 @@ import { FunctionalComponent, h } from "preact";
 import { Route, Router, RouterOnChangeArgs } from "preact-router";
 import NotFoundPage from "../routes/notfound";
 import Header from "./header";
+import Home from "../routes/home"
 
 const App: FunctionalComponent = () => {
     let currentUrl: string;
@@ -13,6 +14,7 @@ const App: FunctionalComponent = () => {
         <div id="app">
             <Header/>
             <Router onChange={handleRoute}>
+                <Home path="/"/>
                 <NotFoundPage default />
             </Router>
         </div>
