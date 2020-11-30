@@ -1,7 +1,7 @@
-import feeds from "../testFeeds";
+import feedsJSON from "../testFeeds";
 import { proxyUrl } from "../constants";
 
-type feedsList = { feeds: { url: string }[] };
+export type feedsListType = { url: string }[];
 
 const myFetch = async (url: string): Promise<string> => {
     return await (
@@ -13,8 +13,8 @@ const myFetch = async (url: string): Promise<string> => {
     ).text();
 };
 
-export function getFeeds(): Promise<feedsList> {
-    return Promise.resolve(feeds);
+export function getFeeds(): Promise<feedsListType> {
+    return Promise.resolve(feedsJSON.feeds);
 }
 
 export async function getFeedXML(url: string) {
