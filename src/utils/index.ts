@@ -1,6 +1,6 @@
-import "./netAdapter";
+export * from "./netAdapter";
 
-export function initialiseSW() {
+export function initialiseSW(): void {
     // Check that service workers are supported
     if ("serviceWorker" in navigator) {
         // Use the window load event to keep the page load performant
