@@ -8,11 +8,12 @@ setupRouting();
 setupPrecaching(getFiles());
 
 */
-console.log(self);
-
 self.addEventListener("install", () => {
-    self.skipWait();
     console.log(self.scope);
 });
 
 self.addEventListener("activate", () => console.log("active"));
+
+self.addEventListener("fetch", ev => {
+    console.log(ev);
+});

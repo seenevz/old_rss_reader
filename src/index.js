@@ -1,4 +1,4 @@
-import "./style/index.sass";
+import "./style/index.scss";
 import App from "./components/app.tsx";
 import { initialiseSW } from "./utils";
 
