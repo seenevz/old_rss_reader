@@ -11,7 +11,7 @@ export default function Home() {
         (async (): Promise<void> => {
             setFeeds(await getFeeds());
         })();
-    });
+    }, []);
 
     return (
         <main class="section is-large">
