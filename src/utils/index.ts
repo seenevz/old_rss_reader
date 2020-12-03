@@ -1,4 +1,5 @@
 export * from "./netAdapter";
+export * from "./myXMLparser";
 
 export function initialiseSW(): void {
     // Check that service workers are supported
