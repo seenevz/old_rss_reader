@@ -1,24 +1,19 @@
-import { FunctionalComponent, h } from "preact";
-import { Link } from "preact-router/match";
-import * as style from "./style.css";
+import { h } from "preact";
+import rssIcon from '../../assets/icons/rss-square-solid.svg';
 
-const Header: FunctionalComponent = () => {
-    return (
-        <header class={style.header}>
-            <h1>Preact App</h1>
-            <nav>
-                <Link activeClassName={style.active} href="/">
-                    Home
-                </Link>
-                <Link activeClassName={style.active} href="/profile">
-                    Me
-                </Link>
-                <Link activeClassName={style.active} href="/profile/john">
-                    John
-                </Link>
-            </nav>
-        </header>
-    );
-};
-
-export default Header;
+export default function Header () {
+  return <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item">
+      <span class='icon is-large' style={'line-height: 0'}>
+        <img src={rssIcon} style={'width: 2em'}/>
+      </span>
+    </a>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+}

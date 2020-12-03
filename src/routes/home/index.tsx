@@ -1,13 +1,25 @@
-import { FunctionalComponent, h } from "preact";
-import * as style from "./style.css";
+import { h } from "preact";
+import { useState, useEffect } from "preact/hooks";
+import EmptyFeed from "../../components/emptyFeed";
+import FeedsContainer from "../../components/feedsContainer";
+import { getFeeds, feedsListType } from "../../utils";
 
-const Home: FunctionalComponent = () => {
+export default function Home() {
+    const [feeds, setFeeds] = useState<feedsListType | []>([]);
+
+    useEffect(() => {
+        (async (): Promise<void> => {
+            setFeeds(await getFeeds());
+        })();
+    }, []);
+
     return (
-        <div class={style.home}>
-            <h1>Home</h1>
-            <p>This is the Home component.</p>
-        </div>
+        <main class="section is-large">
+            {feeds.length > 0 ? (
+                <FeedsContainer feeds={feeds} />
+            ) : (
+                <EmptyFeed />
+            )}
+        </main>
     );
-};
-
-export default Home;
+}

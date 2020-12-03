@@ -9,7 +9,7 @@
         "jsx": "react",                           /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
         "jsxFactory": "h",                        /* Specify the JSX factory function to use when targeting react JSX emit, e.g. React.createElement or h. */
         // "declaration": true,                   /* Generates corresponding '.d.ts' file. */
-        // "sourceMap": true,                     /* Generates corresponding '.map' file. */
+        "sourceMap": true,                     /* Generates corresponding '.map' file. */
         // "outFile": "./",                       /* Concatenate and emit output to single file. */
         // "outDir": "./",                        /* Redirect output structure to the directory. */
         // "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
@@ -53,5 +53,5 @@
         // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
         "esModuleInterop": true
     },
-    "include": ["src/**/*.tsx", "src/**/*.ts"]
+    "include": ["src/**/*.tsx", "src/**/*.ts", "src/sw.js", "src/custom.d.ts"]
 }
