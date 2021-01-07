@@ -14,7 +14,7 @@ export default function Home() {
     }, []);
 
     return (
-        <main class="section is-large">
+        <main class="section">
             {feeds.length > 0 ? (
                 <FeedsContainer feeds={feeds} />
             ) : (
