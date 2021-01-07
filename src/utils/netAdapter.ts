@@ -1,6 +1,7 @@
 import feedsJSON from "../testFeeds";
 import { proxyUrl } from "../constants";
 import { process } from "../env";
+import { getDataFromXML } from "./myXMLparser";
 
 export type feedsListType = { url: string }[];
 
@@ -18,4 +19,8 @@ export function getFeeds(): Promise<feedsListType> {
 
 export async function getFeedXML(url: string): Promise<string> {
     return await myFetch(url);
+}
+
+export async function getParsedFeedData(url: string) {
+    return getDataFromXML(await getFeedXML(url))
 }

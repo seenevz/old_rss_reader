@@ -1,5 +1,5 @@
 // const GetFeedInfo = (document: Document) => {};
-export type ParsedFeed = {
+export type ParsedFeedType = {
     feedInfo: FeedInfo;
     feedItems: FeedItemList;
 };
@@ -68,7 +68,7 @@ const getFeedItems = (document: Document): FeedItemList => {
     return data;
 };
 
-export const getDataFromXML = (stringDoc: string): ParsedFeed => {
+export const getDataFromXML = (stringDoc: string): ParsedFeedType => {
     const parsed = parseXMLFromString(stringDoc);
     const feedInfo = getFeedInfo(parsed);
     const feedItems = getFeedItems(parsed);
