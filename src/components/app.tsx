@@ -1,12 +1,11 @@
 import { FunctionalComponent, h } from "preact";
-import { Route, Router, RouterOnChangeArgs } from "preact-router";
-import NotFoundPage from "../routes/notfound";
+import { Router, RouterOnChangeArgs } from "preact-router";
 import Header from "./header";
 import Home from "../routes/home";
 
 const App: FunctionalComponent = () => {
     let currentUrl: string;
-    const handleRoute = (e: RouterOnChangeArgs) => {
+    const handleRoute = (e: RouterOnChangeArgs): void => {
         currentUrl = e.url;
         console.log(currentUrl);
     };
