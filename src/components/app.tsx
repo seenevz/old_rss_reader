@@ -8,14 +8,14 @@ const App: FunctionalComponent = () => {
     let currentUrl: string;
     const handleRoute = (e: RouterOnChangeArgs) => {
         currentUrl = e.url;
+        console.log(currentUrl);
     };
 
     return (
         <div id="app">
             <Header />
             <Router onChange={handleRoute}>
-                <Home path="/" />
-                <NotFoundPage default />
+                <Home default />
             </Router>
         </div>
     );
