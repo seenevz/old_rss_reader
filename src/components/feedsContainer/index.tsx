@@ -9,22 +9,38 @@ type FeedsContainerProps = {
     feeds: FeedType[];
 };
 
-type FeedsDataType = ParsedFeedType[] | []
+type FeedsDataType = ParsedFeedType[] | [];
+
+export type ExpandedTabType = string | null;
 
 export default function FeedsContainer({ feeds }: FeedsContainerProps) {
     const [feedsData, setFeedsData] = useState([] as FeedsDataType);
+    const [expandedTab, setExpandedTab] = useState(null as ExpandedTabType);
 
     useEffect(() => {
         (async (): Promise<void> => {
-            const feedsStrings = await Promise.all(feeds.map(async feed => {return await getParsedFeedData(feed.url)}));
-            setFeedsData(feedsStrings)
+            const feedsStrings = await Promise.all(
+                feeds.map(async feed => {
+                    return await getParsedFeedData(feed.url);
+                })
+            );
+            setFeedsData(feedsStrings);
         })();
     }, []);
+
+    const toggleExpandedTab = (tabLink: string) => {
+        setExpandedTab(curr => (curr === tabLink ? null : tabLink));
+    };
 
     return (
         <section>
             {feedsData.map((feed: ParsedFeedType) => (
-                <FeedsContainerRow key={Math.random()} feedData={feed} />
+                <FeedsContainerRow
+                    key={Math.random()}
+                    feedData={feed}
+                    expandedTab={expandedTab}
+                    toggleExpandedTab={toggleExpandedTab}
+                />
             ))}
         </section>
     );

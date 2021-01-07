@@ -1,37 +1,32 @@
 import { h, Fragment } from "preact";
-import { useState } from "preact/hooks";
 import { ParsedFeedType } from "../../utils";
-import { Link, route } from "preact-router";
-import Match from "preact-router/match";
+import { ExpandedTabType } from "../feedsContainer";
 
 type FeedsContainerRowProps = {
     feedData: ParsedFeedType;
+    expandedTab: ExpandedTabType;
+    toggleExpandedTab(tabLink: string): void;
 };
 
 export default function FeedsContainerRow({
-    feedData: { feedInfo, feedItems }
+    feedData: { feedInfo, feedItems },
+    expandedTab,
+    toggleExpandedTab
 }: FeedsContainerRowProps) {
-    const [expandList, setExpandList] = useState(false);
-
-    const toggleItemList = (): void => {
-        route(`/${feedInfo?.link}`);
-    };
-
-    const logger = ({ matches, path, url }) => {
-        // const expand = matches && expandList ? false : true;
-        // setExpandList(expand);
-    };
+    const isCurrentTab = expandedTab === feedInfo.link;
 
     return (
         <>
-            <Match path={`/${feedInfo?.link}`}>{logger}</Match>
             <article class="media">
-                <div class="media-content" onClick={toggleItemList}>
+                <div
+                    class="media-content"
+                    onClick={() => toggleExpandedTab(feedInfo?.link)}
+                >
                     <div class="content">
                         <h2 class="title is-6">{feedInfo?.title}</h2>
                         <h3 class="subtitle is-6">{feedInfo?.description}</h3>
                     </div>
-                    {expandList &&
+                    {isCurrentTab &&
                         feedItems.map(item => {
                             return (
                                 <article key={Math.random()} class="media">
