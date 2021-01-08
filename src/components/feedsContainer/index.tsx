@@ -14,8 +14,8 @@ type FeedsDataType = ParsedFeedType[] | [];
 export type ExpandedTabType = string | null;
 
 export default function FeedsContainer({ feeds }: FeedsContainerProps) {
-    const [feedsData, setFeedsData] = useState([] as FeedsDataType);
-    const [expandedTab, setExpandedTab] = useState(null as ExpandedTabType);
+    const [feedsData, setFeedsData] = useState<FeedsDataType>([]);
+    const [expandedTab, setExpandedTab] = useState<ExpandedTabType>(null);
 
     useEffect(() => {
         (async (): Promise<void> => {
@@ -26,9 +26,9 @@ export default function FeedsContainer({ feeds }: FeedsContainerProps) {
             );
             setFeedsData(feedsStrings);
         })();
-    }, []);
+    }, [feeds]);
 
-    const toggleExpandedTab = (tabLink: string) => {
+    const toggleExpandedTab = (tabLink: string): void => {
         setExpandedTab(curr => (curr === tabLink ? null : tabLink));
     };
 
