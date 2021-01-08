@@ -9,7 +9,7 @@ type FeedsContainerProps = {
     feeds: FeedType[];
 };
 
-type FeedsDataType = ParsedFeedType[] | [];
+type FeedsDataType = ParsedFeedType[];
 
 export type ExpandedTabType = string | null;
 
