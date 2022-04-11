@@ -1,5 +1,5 @@
 import "./style/index.scss";
-import App from "./components/app.tsx";
+import App from "./components/app";
 import { initialiseSW } from "./utils";
 
 initialiseSW();

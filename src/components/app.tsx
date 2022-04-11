@@ -1,9 +1,9 @@
-import { FunctionalComponent, h } from "preact";
+import { FunctionalComponent } from "preact";
 import { Router, RouterOnChangeArgs } from "preact-router";
 import Header from "./header";
 import Home from "../routes/home";
 
-const App: FunctionalComponent = () => {
+const jApp: FunctionalComponent = () => {
     let currentUrl: string;
     const handleRoute = (e: RouterOnChangeArgs): void => {
         currentUrl = e.url;

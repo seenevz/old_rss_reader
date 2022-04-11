@@ -22,5 +22,5 @@ export async function getFeedXML(url: string): Promise<string> {
 }
 
 export async function getParsedFeedData(url: string) {
-    return getDataFromXML(await getFeedXML(url))
+    return getDataFromXML(await getFeedXML(url));
 }

@@ -1,4 +1,3 @@
-import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import { getParsedFeedData, ParsedFeedType } from "../../utils";
 import FeedsContainerRow from "../feedsContainerRow";
